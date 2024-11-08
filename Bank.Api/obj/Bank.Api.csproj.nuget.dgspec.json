@@ -29,8 +29,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\daniel.faria\\Bank\\Bank.core\\Bank.Core.csproj": {
-                "projectPath": "C:\\Users\\daniel.faria\\Bank\\Bank.core\\Bank.Core.csproj"
+              "C:\\Users\\daniel.faria\\Bank\\Bank.Core\\Bank.Core.csproj": {
+                "projectPath": "C:\\Users\\daniel.faria\\Bank\\Bank.Core\\Bank.Core.csproj"
               }
             }
           }
@@ -87,14 +87,14 @@
         }
       }
     },
-    "C:\\Users\\daniel.faria\\Bank\\Bank.core\\Bank.Core.csproj": {
+    "C:\\Users\\daniel.faria\\Bank\\Bank.Core\\Bank.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniel.faria\\Bank\\Bank.core\\Bank.Core.csproj",
+        "projectUniqueName": "C:\\Users\\daniel.faria\\Bank\\Bank.Core\\Bank.Core.csproj",
         "projectName": "Bank.Core",
-        "projectPath": "C:\\Users\\daniel.faria\\Bank\\Bank.core\\Bank.Core.csproj",
+        "projectPath": "C:\\Users\\daniel.faria\\Bank\\Bank.Core\\Bank.Core.csproj",
         "packagesPath": "C:\\Users\\daniel.faria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daniel.faria\\Bank\\Bank.core\\obj\\",
+        "outputPath": "C:\\Users\\daniel.faria\\Bank\\Bank.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\daniel.faria\\AppData\\Roaming\\NuGet\\NuGet.Config",
