@@ -28,6 +28,7 @@ public class GetCategoryByIdEndpoint : IEndpoint
  
  var result = await handler.GetByIdAsync(request);
      return result.IsSuccess
-        ? TypedResults.Ok(result.Data)
-        : TypedResults.BadRequest(result.Data);
-  }}
+        ? TypedResults.Ok(result)
+        : TypedResults.BadRequest(result);
+  }
+}

@@ -24,7 +24,7 @@ public  class UpdateCategoryEndpoint : IEndpoint
     request.Id = id;
  var result = await handler.UpdateAsync(request);
      return result.IsSuccess
-        ? TypedResults.Ok(result.Data)
-        : TypedResults.BadRequest(result.Data);
+        ? TypedResults.Ok(result)
+        : TypedResults.BadRequest(result);
   }
 }

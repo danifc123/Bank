@@ -32,8 +32,8 @@ namespace Bank.Api.Endpoints.Categories;
  
  var result = await handler.GetAllAsync(request);
      return result.IsSuccess
-        ? TypedResults.Ok(result.Data)
-        : TypedResults.BadRequest(result.Data);
+        ? TypedResults.Ok(result)
+        : TypedResults.BadRequest(result);
   }
 }
  
