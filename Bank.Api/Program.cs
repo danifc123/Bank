@@ -2,37 +2,40 @@ using Bank.Api.Data;
 using Bank.Api.Endpoints;
 using Bank.Api.Handlers;
 using Bank.Core.Handlers;
-using Bank.Core.Models;
-using Bank.Core.Requests.Categories;
-using Bank.Core.Responses;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(x => { x.CustomSchemaIds(n => n.FullName); });
+
+builder.Services
+    .AddAuthentication(IdentityConstants.ApplicationScheme)
+    .AddIdentityCookies();
+builder.Services.AddAuthorization();
 
 var cnnStr = builder
     .Configuration
     .GetConnectionString("DefaultConnection") ?? string.Empty;
 
 
-builder.Services.AddDbContext<AppDbContext>(
-  x =>
-  {
-    x.UseSqlServer(cnnStr);
-  }
-);
+builder
+.Services
+.AddDbContext<AppDbContext>(
+  x => { x.UseSqlServer(cnnStr); });
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(x =>
-{
-  x.CustomSchemaIds(n => n.FullName); //full qualified name
-});
 
-builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
+builder
+.Services
+.AddTransient<ICategoryHandler, CategoryHandler>();
 
-builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
-
+builder
+.Services
+.AddTransient<ITransactionHandler, TransactionHandler>();
 
 var app = builder.Build();
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
