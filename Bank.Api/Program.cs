@@ -15,7 +15,7 @@ var cnnStr = builder
 
 
 builder.Services.AddDbContext<AppDbContext>(
-  x=>
+  x =>
   {
     x.UseSqlServer(cnnStr);
   }
@@ -27,13 +27,16 @@ builder.Services.AddSwaggerGen(x =>
   x.CustomSchemaIds(n => n.FullName); //full qualified name
 });
 
-builder.Services.AddTransient<ICategoryHandler,CategoryHandler>();
+builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
+
+builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
+
 
 var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.MapGet("/", () => new {message = "ok"});
+app.MapGet("/", () => new { message = "ok" });
 app.MapEndpoints();
 
 app.Run();
