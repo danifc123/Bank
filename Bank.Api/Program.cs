@@ -29,6 +29,7 @@ builder.Services
 .AddIdentityCore<User>()
 .AddRoles<IdentityRole<long>>()
 .AddEntityFrameworkStores<AppDbContext>();
+//.AddApiEndpoints();
 
 builder
 .Services
