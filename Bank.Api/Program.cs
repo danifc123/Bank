@@ -28,8 +28,8 @@ builder
 builder.Services
 .AddIdentityCore<User>()
 .AddRoles<IdentityRole<long>>()
-.AddEntityFrameworkStores<AppDbContext>();
-//.AddApiEndpoints();
+.AddEntityFrameworkStores<AppDbContext>()
+.AddApiEndpoints();
 
 builder
 .Services
@@ -40,6 +40,9 @@ builder
 .AddTransient<ITransactionHandler, TransactionHandler>();
 
 var app = builder.Build();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseSwagger();
 app.UseSwaggerUI();
