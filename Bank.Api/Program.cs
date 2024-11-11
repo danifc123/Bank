@@ -1,6 +1,7 @@
 using Bank.Api.Data;
 using Bank.Api.Endpoints;
 using Bank.Api.Handlers;
+using Bank.Api.Models;
 using Bank.Core.Handlers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -21,10 +22,13 @@ var cnnStr = builder
 
 
 builder
-.Services
-.AddDbContext<AppDbContext>(
-  x => { x.UseSqlServer(cnnStr); });
-
+  .Services
+  .AddDbContext<AppDbContext>(
+                x => { x.UseSqlServer(cnnStr); });
+builder.Services
+.AddIdentityCore<User>()
+.AddRoles<IdentityRole<long>>()
+.AddEntityFrameworkStores<AppDbContext>();
 
 builder
 .Services
