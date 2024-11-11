@@ -8,7 +8,7 @@ public class IdentityUserClaimMapping : IEntityTypeConfiguration<IdentityUserCla
 {
   public void Configure(EntityTypeBuilder<IdentityUserClaim<long>> builder)
   {
-    builder.ToTable("IdentityUserClaim");
+    builder.ToTable("IdentityClaim");
     builder.HasKey(uc => uc.Id);
     builder.Property(u => u.ClaimType).HasMaxLength(255);
     builder.Property(u => u.ClaimValue).HasMaxLength(255);

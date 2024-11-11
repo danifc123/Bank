@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X4Fn91XWQL4=",
+  "dgSpecHash": "MYNcb3FzFho=",
   "success": true,
   "projectFilePath": "C:\\Users\\daniel.faria\\Bank\\Bank.core\\Bank.Core.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\daniel.faria\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\daniel.faria\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\daniel.faria\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

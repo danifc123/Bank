@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Bank.Api.Data.Mappings.Identity;
 
-public class IdentityUser : IEntityTypeConfiguration<User>
+public class IdentityUserMapping : IEntityTypeConfiguration<User>
 {
   public void Configure(EntityTypeBuilder<User> builder)
   {
