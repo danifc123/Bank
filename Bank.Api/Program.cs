@@ -49,6 +49,9 @@ app.UseSwaggerUI();
 
 app.MapGet("/", () => new { message = "ok" });
 app.MapEndpoints();
+app.MapGroup("v1/identity")
+.WithTags("Identity")
+.MapIdentityApi<User>();
 
 app.Run();
 
