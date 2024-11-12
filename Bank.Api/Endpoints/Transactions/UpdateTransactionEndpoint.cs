@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Bank.Api.Common.Api;
 using Bank.Core.Handlers;
 using Bank.Core.Models;
@@ -17,11 +18,12 @@ public class UpdateTransactionEndpoint : IEndpoint
       .Produces<Response<Transaction?>>();
 
   public static async Task<IResult> HandleAsync(
+    ClaimsPrincipal user,
     ITransactionHandler handler,
     UpdateTransactionRequest request,
     long id)
   {
-    request.UserId = "test@balta.io";
+    request.UserId = user.Identity?.Name ?? string.Empty;
     request.Id = id;
     var result = await handler.UpdateAsync(request);
     return result.IsSuccess

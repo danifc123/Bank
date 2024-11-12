@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Bank.Api.Common.Api;
 using Bank.Core.Handlers;
 using Bank.Core.Models;
@@ -17,11 +18,12 @@ public class CreateTransactionEndpoint : IEndpoint
        .Produces<Response<Transaction?>>();
 
   private static async Task<IResult> HandleAsync(
+    ClaimsPrincipal user,
     ITransactionHandler handler,
     CreateTransactionRequest request
   )
   {
-    request.UserId = "test@balta.io";
+    request.UserId = user.Identity?.Name ?? string.Empty;
     var result = await handler.CreateAsync(request);
     return result.IsSuccess
        ? TypedResults.Created($"/{result.Data?.Id}", result)

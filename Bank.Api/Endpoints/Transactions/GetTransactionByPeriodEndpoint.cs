@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Bank.Api.Common.Api;
 using Bank.Core;
 using Bank.Core.Handlers;
@@ -19,6 +20,7 @@ public class GetTransactionByPeriodEndpoint : IEndpoint
        .Produces<PagedResponse<List<Transaction>?>>();
 
   public static async Task<IResult> HandleAsync(
+    ClaimsPrincipal user,
     ITransactionHandler handler,
     [FromQuery] DateTime? startDate = null,
     [FromQuery] DateTime? endDate = null,
@@ -29,7 +31,7 @@ public class GetTransactionByPeriodEndpoint : IEndpoint
     {
       PageNumber = pageNumber,
       PageSize = pageSize,
-      UserId = "test@balta.io",
+      UserId = user.Identity?.Name ?? string.Empty,
       StartDate = startDate,
       EndDate = endDate,
     };
