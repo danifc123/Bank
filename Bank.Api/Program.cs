@@ -16,7 +16,6 @@ if (app.Environment.IsDevelopment())
     app.ConfigureDevEnvironment();
 
 app.UseSecurity();
-
 app.MapEndpoints();
 
 
