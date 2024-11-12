@@ -1,7 +1,9 @@
 
 using Bank.Api.Common.Api;
 using Bank.Api.Endpoints.Categories;
+using Bank.Api.Endpoints.Identity;
 using Bank.Api.Endpoints.Transactions;
+using Bank.Api.Models;
 
 namespace Bank.Api.Endpoints;
 
@@ -33,6 +35,17 @@ public static class Endpoint
   .MapEndpoint<DeleteTransactionEndpoint>()
   .MapEndpoint<GetTransactionByIdEndpoint>()
   .MapEndpoint<GetTransactionByPeriodEndpoint>();
+
+    endpoints.MapGroup("v1/identity")
+      .WithTags("Identity")
+      .MapIdentityApi<User>();
+
+
+    endpoints.MapGroup("v1/identity")
+    .WithTags("Identity")
+    .MapEndpoint<LogoutEndpoint>()
+    .MapEndpoint<GetRolesEndpoints>();
+
   }
   private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)
       where TEndpoint : IEndpoint
