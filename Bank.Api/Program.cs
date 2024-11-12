@@ -1,3 +1,4 @@
+using Bank.Api;
 using Bank.Api.Common.Api;
 using Bank.Api.Endpoints;
 
@@ -15,6 +16,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
     app.ConfigureDevEnvironment();
 
+app.UseCors(ApiConfiguration.CrosPolicyName);
 app.UseSecurity();
 app.MapEndpoints();
 
